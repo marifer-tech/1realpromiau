@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Real Pro Miau - Ajude gatos de rua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="cat-paw" style="top: 20px; left: 20px;">🐾</div>
+        <div class="cat-paw" style="top: 80px; right: 30px;">🐾</div>
+        <div class="cat-paw" style="bottom: 40px; left: 50px;">🐾</div>
+        <div class="cat-paw" style="bottom: 30px; right: 60px;">🐾</div>
+        
+        <div class="header-content container">
+            <img src="assets/images/logo-projeto.png" class="logo-image" alt="Logo 1 Real Pro Miau">
+            <p class="subtitle">Ajude a alimentar gatos de rua com apenas 1 real</p>
+            
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="stats">
+            <h2 class="section-title">Nossos Números</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-raised">R$ 0</div>
+                    <div class="stat-label">Arrecadado</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="total-spent">R$ 0</div>
+                    <div class="stat-label">Gasto com os gatos</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="cats-fed">0</div>
+                    <div class="stat-label">Gatos alimentados</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="contributors-count">0</div>
+                    <div class="stat-label">Pessoas que ajudaram</div>
+                </div>
+            </div>
+            
+            <!--
+            
+            <div class="chart-container">
+                <canvas id="donationsChart"></canvas>
+            </div>
+        -->
+          
+            
+        </section>
+        
+        <section id="donate">
+            <h2 class="section-title">Como Ajudar</h2>
+            
+            <div class="pix-container">
+                <div class="pix-info">
+                    <h3>Faça uma doação via PIX</h3>
+                    <p>Com apenas 1 real você ajuda a alimentar um gato de rua. Todo valor é bem-vindo e faz diferença!</p>
+                    
+                    <div class="pix-key">
+                        <strong>Chave PIX:</strong> <span id="pix-key">d23daf83-7202-49ab-ac63-1c25ee257680</span>
+                    </div>
+                    
+                    <button class="btn-copy" id="copy-button">Copiar Chave</button>
+                    
+                    <p style="margin-top: 1rem;">Ao doar, você pode aparecer nos nossos posts do TikTok como contribuidor!</p>
+                </div>
+                
+                <div class="pix-qr">
+                    <img src="assets/images/pix-qrcode.jpg" alt="QR Code PIX">
+                    <p>Escaneie este QR Code para doar 1 real</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contributors">
+            <h2 class="section-title">Nossos Apoiadores</h2>
+            
+            <p style="text-align: center;">Essas pessoas incríveis já ajudaram nosso projeto mais de uma vez:</p>
+            
+            <div class="contributors" id="contributors-list">
+                <!-- Lista de contribuidores será preenchida pelo JavaScript -->
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <h2 class="section-title">Gatos Ajudados</h2>
+            
+            <div class="gallery">
+                <img src="https://source.unsplash.com/random/300x300/?cat,food" alt="Gato sendo alimentado">
+                <img src="https://source.unsplash.com/random/300x300/?cat,eating" alt="Gato comendo">
+                <img src="https://source.unsplash.com/random/300x300/?cat,street" alt="Gato de rua">
+                <img src="https://source.unsplash.com/random/300x300/?cat,pet" alt="Gato feliz">
+                <img src="https://source.unsplash.com/random/300x300/?cat,help" alt="Gato recebendo ajuda">
+                <img src="https://source.unsplash.com/random/300x300/?cat,rescue" alt="Gato resgatado">
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>1 Real Pro Miau - Transformando pequenas doações em ajuda real para gatos de rua</p>
+            <p>© 2025 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
