@@ -1,9 +1,9 @@
 // Dados do projeto
 const projectData = {
-    totalRaised: 0,
-    totalSpent: 0,
-    catsFed: 0,
-    contributors: [ ],
+    totalRaised: 25,
+    totalSpent: 20,
+    catsFed: 5,
+    contributors: 5,
     monthlyDonations: {
         labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
         data: [50, 75, 120, 90, 150, 200, 180, 210, 240, 190, 160, 220]
@@ -38,20 +38,9 @@ function updateStats() {
     document.getElementById('total-raised').textContent = `R$ ${projectData.totalRaised.toFixed(2)}`;
     document.getElementById('total-spent').textContent = `R$ ${projectData.totalSpent.toFixed(2)}`;
     document.getElementById('cats-fed').textContent = projectData.catsFed;
-    document.getElementById('contributors-count').textContent = projectData.contributors.length;
+    document.getElementById('contributors-count').textContent = projectData.contributors;
 }
 
-function renderContributors() {
-    const contributorsList = document.getElementById('contributors-list');
-    contributorsList.innerHTML = ''; // Limpa a lista
-    
-    projectData.contributors.forEach(contributor => {
-        const element = document.createElement('div');
-        element.className = 'contributor';
-        element.textContent = contributor;
-        contributorsList.appendChild(element);
-    });
-}
 
 function setupChart() {
     const donationsCtx = document.getElementById('donationsChart').getContext('2d');
@@ -120,5 +109,4 @@ function simulateRealTimeUpdates() {
     
     // Atualiza a UI
     updateStats();
-    renderContributors();
 }
