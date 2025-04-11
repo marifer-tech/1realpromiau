@@ -15,20 +15,11 @@ const projectData = {
 };
 
 // Inicializa a página
-document.addEventListener('DOMContentLoaded', function() {
-    // Atualiza os valores na página
+document.addEventListener('DOMContentLoaded', function () {
     updateStats();
-    
-    // Preenche a lista de contribuidores
-    renderContributors();
-    
-    // Configura o gráfico
-    setupChart();
-    
-    // Configura o botão de copiar
     setupCopyButton();
-    
-    // Simula atualização de dados em tempo real (para demonstração)
+    setupChart();
+
     if (window.location.href.includes('debug')) {
         setInterval(simulateRealTimeUpdates, 5000);
     }
@@ -41,9 +32,11 @@ function updateStats() {
     document.getElementById('contributors-count').textContent = projectData.contributors;
 }
 
-
 function setupChart() {
-    const donationsCtx = document.getElementById('donationsChart').getContext('2d');
+    const canvas = document.getElementById('donationsChart');
+    if (!canvas) return;
+
+    const donationsCtx = canvas.getContext('2d');
     new Chart(donationsCtx, {
         type: 'bar',
         data: {
@@ -69,18 +62,28 @@ function setupChart() {
 
 function setupCopyButton() {
     const copyButton = document.getElementById('copy-button');
+    if (!copyButton) return;
+
     copyButton.addEventListener('click', copyPixKey);
 }
 
 async function copyPixKey() {
-    const pixKey = document.getElementById('pix-key').textContent;
+    const pixKeyElement = document.getElementById('pix-key');
+    const button = document.getElementById('copy-button');
+    
+    if (!pixKeyElement || !button) {
+        alert('Erro ao copiar: elemento não encontrado.');
+        return;
+    }
+
+    const pixKey = pixKeyElement.textContent.trim();
+
     try {
         await navigator.clipboard.writeText(pixKey);
-        const button = document.getElementById('copy-button');
         const originalText = button.textContent;
         button.textContent = 'Copiado!';
         button.style.backgroundColor = '#4CAF50';
-        
+
         setTimeout(() => {
             button.textContent = originalText;
             button.style.backgroundColor = '#4ECDC4';
@@ -92,21 +95,17 @@ async function copyPixKey() {
 }
 
 function simulateRealTimeUpdates() {
-    // Aumenta os valores aleatoriamente para demonstração
     const randomDonation = Math.random() * 5;
     projectData.totalRaised += randomDonation;
     projectData.catsFed += Math.floor(Math.random() * 3);
-    
-    // Atualiza o gráfico de doações
+
     const currentMonth = new Date().getMonth();
     projectData.monthlyDonations.data[currentMonth] += randomDonation;
-    
-    // Adiciona um novo contribuidor ocasionalmente
-    if (Math.random() > 0.8 && projectData.contributors.length < 30) {
-        const newContributor = `@contribuidor${projectData.contributors.length + 1}`;
-        projectData.contributors.push(newContributor);
+
+    // Simula mais contribuidores (caso fosse array de nomes)
+    if (typeof projectData.contributors === 'number' && projectData.contributors < 30) {
+        projectData.contributors += 1;
     }
-    
-    // Atualiza a UI
+
     updateStats();
 }
