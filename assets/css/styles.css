@@ -33,26 +33,24 @@ header {
     z-index: 2;
 }
 
-/* Estilos para a logo */
 .header-content img {
     width: 100%;
-    max-width: 450px; /* Tamanho máximo */
+    max-width: 450px;
     height: auto;
     display: block;
     margin: 0 auto;
 }
 
-/* Ajustes específicos para mobile */
 @media (max-width: 768px) {
     .header-content img {
-        max-width: 300px; /* Reduz o tamanho em telas menores */
-        padding: 0 1rem; /* Adiciona um pouco de espaço nas laterais */
+        max-width: 200px;
+        padding: 0 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .header-content img {
-        max-width: 250px; /* Tamanho ainda menor para telas muito pequenas */
+        max-width: 150px;
     }
 }
 
@@ -150,7 +148,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
@@ -159,20 +157,34 @@ section {
 
 .pix-info {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
+    max-width: 600px;
 }
 
 .pix-qr {
     flex: 1;
-    min-width: 500px;
+    min-width: 280px;
+    max-width: 500px;
     text-align: center;
 }
 
 .pix-qr img {
-    max-width: 500px;
+    width: 100%;
+    max-width: 400px;
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .pix-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .pix-qr img {
+        max-width: 280px;
+    }
 }
 
 .pix-key {
@@ -180,7 +192,7 @@ section {
     padding: 1rem;
     border-radius: 5px;
     margin-top: 1rem;
-    word-break: break-all;
+    word-break: break-word;
     font-family: monospace;
 }
 
@@ -224,7 +236,7 @@ footer {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -245,8 +257,16 @@ footer {
     h1 {
         font-size: 2rem;
     }
-    
-    .stats-container {
-        grid-template-columns: 1fr;
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .gallery img {
+        height: 200px;
     }
 }
